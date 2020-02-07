@@ -8,17 +8,19 @@
         <meta name="description" content="Formulário Dinâmico.">
         <meta name="keywords" content="html5, formulário, provas">
         <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style.css">        
+        <link rel="stylesheet" href="css/dinamics.css">
+
     </head>
     <body>
        <div class="container">
-            <div class="leaf">
+            <div id="leaf" class="leaf">
 
             </div>
             <div class="panel">  
-                <button id="textLabel">TextLabel</button>                             
-                <button id="textbox">TextBox</button> 
-                <button id="inputOption">InputOption</button>                            
+                <button id="btn-textLabel">TextLabel</button>                             
+                <button id="btn-textbox">TextBox</button> 
+                <button id="btn-inputOption">InputOption</button>                            
                           
               
             </div>
@@ -28,14 +30,51 @@
 </html>
 <script src="js/jquery-3.1.1.min.js"></script>
 <script>
+    
+    var leaf = $("#leaf");
+    var currentLabel;
+    var currentBox;
+    var currentOption;
+    
+    /*  BUTTONS ACTIONS */         
     $(document).ready(function(){
-        $("#textLabel").click(function(){
-            
+        $("#btn-textLabel").click(function(){
+             $("#leaf").append('<div><textarea class="t-label">Text Here ! </textarea></div>');
         });
-        
-        
     }); /* /document.ready */
 
+    $(document).on("mouseleave",".t-label",function(){
+        if(!$(this).hasClass('active-lavel')){
+            $(this).parent().css('border','');
+        }         
+    });
 
-
+    $(document).on("mouseenter",".t-label",function(){
+        if(!$(this).hasClass('active-lavel')){
+           $(this).parent().css('border','1px solid red');
+        }
+    });
+    
+    $(document).on("click",".t-label",function(){
+        currentLabel = $(this);
+        
+        $(this).parent().parent().find('.active-label').each(function(k,v){            
+          $(v).removeClass('active-label');
+        });
+        
+        $(this).parent().append('<textarea id="newTextOnLabel">'+  currentLabel.text() +'</textarea>');
+        
+        $("#newlabel").focus();        
+        
+        currentLabel.addClass('active-label');
+        currentLabel.hide(); 
+    });
+    
+    $(document).on('keypress','#newTextOnLabel', function(event){
+       if(event.keyCode === 13 ){
+           currentLabel.text($(this).val());
+           $(this).remove();
+           currentLabel.show();
+       }
+    });
 </script>

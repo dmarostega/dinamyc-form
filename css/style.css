@@ -10,13 +10,26 @@ body{
     margin: 1em;
 }
 
+
+textarea{
+    display: block;
+    width: 100%;
+}
+
 .leaf{
-    width:   1240px;
+    width: 595px;
+/*    width: 77.5em;*/
     /* 21 cm = 595px(72dpi) | 1240px= 77.5em (^16)*/
-    height:  1754px ;
-    /* 29.7cm = 842px(72dpi) | 1754px  = 109,625‬em (^16)*/
+    height:  842px;
+/*    height: 109.625‬em;*/
+    /* 29.7cm = 842px(72dpi) | 1754px  = 109.625‬em (^16)*/
     background-color: white;
+    padding: 1em;
     float: left;
+}
+
+.leaf > div {
+    margin: 1em 0;
 }
 
 .panel {
@@ -26,3 +39,9 @@ body{
     background: #4e4b4a;
     padding: 1em;
 }
+
+
+.active-label{
+    border: 1px solid blue;
+}
+
