@@ -1,0 +1,28 @@
+
+body{
+    background-color: black;
+}
+.container{
+    
+}
+
+.container > div{
+    margin: 1em;
+}
+
+.leaf{
+    width:   1240px;
+    /* 21 cm = 595px(72dpi) | 1240px= 77.5em (^16)*/
+    height:  1754px ;
+    /* 29.7cm = 842px(72dpi) | 1754px  = 109,625‬em (^16)*/
+    background-color: white;
+    float: left;
+}
+
+.panel {
+    float: left;
+    width: 350px;
+    height: 250px;
+    background: #4e4b4a;
+    padding: 1em;
+}
